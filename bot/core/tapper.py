@@ -319,9 +319,6 @@ class Tapper:
         headers = get_headers(name=self.tg_client.name)
 
         proxy_conn = ProxyConnector().from_url(proxy) if proxy else None
-        http_client = aiohttp.ClientSession(
-            headers=headers, connector=proxy_conn
-        )
 
         async with aiohttp.ClientSession(headers=headers, connector=proxy_conn) as http_client:
             if proxy:
